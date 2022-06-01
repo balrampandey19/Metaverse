@@ -1,4 +1,7 @@
+import Movements  from "./movements.js";
+
 console.log("HI my name in Balram Pandey")
+
 
 // Decleration of a new scene with Three.js
 const scene = new THREE.Scene(); 
@@ -77,6 +80,26 @@ function animate() {
     cylinder.rotation.x += 0.01
     cylinder.rotation.y += 0.01
 	requestAnimationFrame( animate );
+    // Movement Left
+    if(Movements.isPresed(37))
+    {
+        camera.position.x -= 0.5
+    }
+    if(Movements.isPresed(38))
+    {
+    camera.position.x +=0.5;
+    camera.position.y += 0.5;
+    }
+    if(Movements.isPresed(39))
+    {
+    camera.position.x +=0.5;
+    }
+    if(Movements.isPresed(40))
+    {
+    camera.position.x -=0.5;
+    camera.position.y -= 0.5;
+    }
+    camera.lookAt(space.position);
 	renderer.render( scene, camera );
 }
 animate();
